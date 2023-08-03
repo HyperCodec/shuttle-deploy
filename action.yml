@@ -7,8 +7,10 @@ branding:
 inputs:
   api_key:
     description: "API key for Shuttle account"
+    required: true
   project_name:
     description: "The name of the Shuttle project"
+    required: true
 runs:
   using: "node12"
   main: main.js

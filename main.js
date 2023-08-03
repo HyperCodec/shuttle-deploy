@@ -1,20 +1,20 @@
 const { core } = require("@actions/core");
-const { exec } = require("node:child_process");
+const { exec } = require("@actions/exec");
 
 async function run() {
     core.info("Starting action...");
    
-    const apiKey = core.getInput("api_key");
-    const name = core.getInput("project_name");
+    const apiKey = core.getInput("api_key", { required: true });
+    const name = core.getInput("project_name", { required: true });
 
     core.info("Installing Shuttle");
-    exec("cargo install cargo-shuttle");
+    await exec.exec("cargo install cargo-shuttle");
 
     core.info("Shuttle installed successfully, logging in");
-    exec(`cargo shuttle login --api-key ${apiKey}`);
+    await exec.exec(`cargo shuttle login --api-key ${apiKey}`);
 
     core.info("Logged in, deploying to Shuttle");
-    exec(`cargo shuttle deploy --name ${name}`);
+    await exec.exec(`cargo shuttle deploy --name ${name}`);
 
     core.setOutput("result", "success");
     core.info("Project deployed to Shuttle successfully.");
