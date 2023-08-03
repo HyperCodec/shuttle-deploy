@@ -15,9 +15,9 @@ jobs:
         environment: testing
         steps:
             - uses: actions/checkout@v2
-            - name: CD into test folder
-              run: cd test
-            - uses: ./
-              with:
-                api_key: ${{ secrets.SHUTTLE_API_KEY }}
-                project_name: cargo-shuttle-test
+            - name: Deploy to Shuttle
+              working-directory: ./test
+              uses: ../
+                with:
+                    api_key: ${{ secrets.SHUTTLE_API_KEY }}
+                    project_name: cargo-shuttle-test
