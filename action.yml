@@ -3,7 +3,7 @@ description: "Deploy code to production server using cargo-shuttle"
 author: "HyperCodec"
 branding:
   icon: "truck"
-  color: "orangeRed"
+  color: "orange-red"
 inputs:
   api_key:
     description: "API key for Shuttle account"
