@@ -10,4 +10,10 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v3
+              with:
+                token: ${{ secrets.WORKFLOW_TOKEN }}
             - uses: EndBug/latest-tag@latest
+              with:
+                description: Points to the latest release
+              env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
