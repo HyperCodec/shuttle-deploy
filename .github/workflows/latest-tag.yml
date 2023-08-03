@@ -2,6 +2,9 @@ name: Add latest tag on release
 
 on: [release]
 
+permissions:
+    contents: write
+
 jobs:
     add-tag:
         runs-on: ubuntu-latest
