@@ -6,6 +6,11 @@ async function run() {
    
     const apiKey = core.getInput("api_key", { required: true });
     const name = core.getInput("project_name", { required: true });
+    const path = core.getInput("path");
+
+    if(path !== null) {
+        await exec("cd", [path]);
+    }
 
     core.info("Installing Shuttle");
     await exec("cargo install cargo-shuttle");
