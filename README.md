@@ -22,7 +22,7 @@ jobs:
         environment: production
         steps:
             - uses: actions/checkout@v3
-            - uses: hypercodec/shuttle-deploy@v1
+            - uses: hypercodec/shuttle-deploy@0.1
               with:
                 api_key: ${{ secrets.SHUTTLE_API_KEY }}
 ```
