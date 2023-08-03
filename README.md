@@ -21,7 +21,7 @@ jobs:
         runs-on: ubuntu-latest
         environment: production
         steps:
-            - uses: actions/checkout@v2
+            - uses: actions/checkout@v3
             - uses: hypercodec/shuttle-deploy@v1
               with:
                 api_key: ${{ secrets.SHUTTLE_API_KEY }}
