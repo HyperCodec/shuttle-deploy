@@ -25,7 +25,6 @@ jobs:
             - uses: hypercodec/shuttle-deploy@v1
               with:
                 api_key: ${{ secrets.SHUTTLE_API_KEY }}
-                project_name: project
 ```
 
 ### Parameters
