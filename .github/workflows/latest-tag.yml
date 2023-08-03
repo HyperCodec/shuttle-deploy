@@ -1,6 +1,8 @@
 name: Add latest tag on release
 
-on: [release]
+on:
+    release:
+        types: [published]
 
 permissions:
     contents: write
