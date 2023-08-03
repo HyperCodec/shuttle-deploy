@@ -8,7 +8,7 @@ async function run() {
     const name = core.getInput("project_name");
     const path = core.getInput("path");
 
-    if(path !== null) {
+    if(path) {
         process.chdir(path);
     }
 
@@ -19,7 +19,7 @@ async function run() {
     await exec(`cargo shuttle login --api-key ${apiKey}`);
 
     core.info("Logged in, deploying to Shuttle");
-    if(name === null) {
+    if(!name) {
         await exec("cargo shuttle deploy");
     } else {
         await exec(`cargo shuttle deploy --name ${name}`);
