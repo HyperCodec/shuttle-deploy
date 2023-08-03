@@ -9,7 +9,7 @@ async function run() {
     const path = core.getInput("path");
 
     if(path !== null) {
-        await exec("cd", [path]);
+        process.chdir(path);
     }
 
     core.info("Installing Shuttle");
