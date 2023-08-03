@@ -5,7 +5,7 @@ async function run() {
     core.info("Starting action...");
    
     const apiKey = core.getInput("api_key", { required: true });
-    const name = core.getInput("project_name", { required: true });
+    const name = core.getInput("project_name");
     const path = core.getInput("path");
 
     if(path !== null) {
@@ -19,7 +19,11 @@ async function run() {
     await exec(`cargo shuttle login --api-key ${apiKey}`);
 
     core.info("Logged in, deploying to Shuttle");
-    await exec(`cargo shuttle deploy --name ${name}`);
+    if(name === null) {
+        await exec("cargo shuttle deploy");
+    } else {
+        await exec(`cargo shuttle deploy --name ${name}`);
+    }
 
     core.setOutput("result", "success");
     core.info("Project deployed to Shuttle successfully.");
