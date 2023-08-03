@@ -1,5 +1,5 @@
 const core = require("@actions/core");
-const exec = require("@actions/exec");
+const { exec } = require("@actions/exec");
 
 async function run() {
     core.info("Starting action...");
@@ -8,13 +8,13 @@ async function run() {
     const name = core.getInput("project_name", { required: true });
 
     core.info("Installing Shuttle");
-    await exec.exec("cargo install cargo-shuttle");
+    await exec("cargo install cargo-shuttle");
 
     core.info("Shuttle installed successfully, logging in");
-    await exec.exec(`cargo shuttle login --api-key ${apiKey}`);
+    await exec(`cargo shuttle login --api-key ${apiKey}`);
 
     core.info("Logged in, deploying to Shuttle");
-    await exec.exec(`cargo shuttle deploy --name ${name}`);
+    await exec(`cargo shuttle deploy --name ${name}`);
 
     core.setOutput("result", "success");
     core.info("Project deployed to Shuttle successfully.");
