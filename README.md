@@ -1,2 +1,36 @@
 # shuttle-deploy
 Github Actions repo for deploying to https://shuttle.rs
+
+### Quickstart
+```yaml
+name: Deploy
+
+on:
+    push:
+        branches:
+            - main
+    pull_request:
+        branches:
+            - main
+    workflow_dispatch:
+
+concurrency: production
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+        environment: production
+        steps:
+            - uses: actions/checkout@v2
+            - uses: hypercodec/shuttle-deploy@v1
+              with:
+                api_key: ${{ secrets.SHUTTLE_API_KEY }}
+                project_name: project
+```
+
+### Parameters
+`* = required`
+
+- api_key* - Your shuttle.rs API key. For security reasons, please use [Github Secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets) so as to not leak access to your Shuttle account.
+- project_name* - The name of the Shuttle project.
+- path - The path to your Shuttle project.
