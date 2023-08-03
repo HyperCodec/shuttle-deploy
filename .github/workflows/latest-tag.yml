@@ -6,4 +6,5 @@ jobs:
     add-tag:
         runs-on: ubuntu-latest
         steps:
+            - uses: actions/checkout@v3
             - uses: EndBug/latest-tag@latest
