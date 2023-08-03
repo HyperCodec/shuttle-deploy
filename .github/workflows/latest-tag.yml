@@ -1,6 +1,6 @@
 name: Add latest tag on release
 
-on: [release, pull_request]
+on: [release]
 
 jobs:
     add-tag:
