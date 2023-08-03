@@ -1,0 +1,23 @@
+on:
+    push:
+        branches:
+            - main
+    pull_request:
+        branches:
+            - main
+    workflow_dispatch:
+
+concurrency: testing
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+        environment: testing
+        steps:
+            - uses: actions/checkout@v2
+            - name: CD into test folder
+              run: cd test
+            - uses: ./
+              with:
+                api_key: ${{ secrets.SHUTTLE_API_KEY }}
+                project_name: test
