@@ -208,6 +208,16 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "89b2fd2a0dcf38d7971e2194b6b6eebab45ae01067456a7fd93d5547a61b70be"
 
 [[package]]
+name = "cargo-shuttle-test"
+version = "0.1.0"
+dependencies = [
+ "axum",
+ "shuttle-axum",
+ "shuttle-runtime",
+ "tokio",
+]
+
+[[package]]
 name = "cc"
 version = "1.0.81"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1560,16 +1570,6 @@ name = "sync_wrapper"
 version = "0.1.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "2047c6ded9c721764247e62cd3b03c09ffc529b2ba5b10ec482ae507a4a70160"
-
-[[package]]
-name = "test"
-version = "0.1.0"
-dependencies = [
- "axum",
- "shuttle-axum",
- "shuttle-runtime",
- "tokio",
-]
 
 [[package]]
 name = "thiserror"
