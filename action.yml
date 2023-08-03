@@ -1,5 +1,5 @@
 name: "Deploy with Shuttle"
-description: "Deploy code to production server using Shuttle CLI"
+description: "Deploy code to production server using cargo-shuttle"
 author: "HyperCodec"
 branding:
   icon: "play-circle"
