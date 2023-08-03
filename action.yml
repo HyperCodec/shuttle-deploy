@@ -2,8 +2,8 @@ name: "Deploy with Shuttle"
 description: "Deploy code to production server using cargo-shuttle"
 author: "HyperCodec"
 branding:
-  icon: "play-circle"
-  color: "gray-dark"
+  icon: "truck"
+  color: "orangeRed"
 inputs:
   api_key:
     description: "API key for Shuttle account"
