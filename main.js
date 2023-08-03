@@ -19,4 +19,4 @@ async function run() {
     core.setOutput("result", "success");
     core.info("Project deployed to Shuttle successfully.");
 }
-run();
+run().catch(core.setFailed);
