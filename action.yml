@@ -1,0 +1,14 @@
+name: "Deploy with Shuttle"
+description: "Deploy code to production server using Shuttle CLI"
+author: "HyperCodec"
+branding:
+  icon: "play-circle"
+  color: "gray-dark"
+inputs:
+  api_key:
+    description: "API key for Shuttle account"
+  project_name:
+    description: "The name of the Shuttle project"
+runs:
+  using: "node12"
+  main: main.js
