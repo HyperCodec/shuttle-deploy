@@ -8,3 +8,7 @@ jobs:
         steps:
             - uses: actions/checkout@v3
             - uses: EndBug/latest-tag@latest
+              with:
+                description: Points to the latest release
+              env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
