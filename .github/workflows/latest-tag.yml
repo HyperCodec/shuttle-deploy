@@ -1,0 +1,9 @@
+name: Add latest tag on release
+
+on: [release]
+
+jobs:
+    add-tag:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: EndBug/latest-tag@latest
