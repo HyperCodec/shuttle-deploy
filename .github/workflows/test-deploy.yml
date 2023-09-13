@@ -1,3 +1,5 @@
+name: Test Deploy
+
 on:
     push:
         branches:
