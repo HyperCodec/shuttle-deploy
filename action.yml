@@ -22,7 +22,7 @@ runs:
       uses: cargo-bins/cargo-binstall@install-cargo-binstall-1.0.0
 
     - name: Install cargo-shuttle
-      run: cargo binstall cargo-shuttle
+      run: cargo binstall cargo-shuttle -y
       shell: sh
       working-directory: ${{ inputs.path }}
 
