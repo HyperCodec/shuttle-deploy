@@ -20,9 +20,7 @@ runs:
   steps:
     - name: Install cargo-binstall
       uses: cargo-bins/cargo-binstall@install-cargo-binstall-1.0.0
-      shell: sh
-      working-directory: ${{ inputs.path }}
-      
+
     - name: Install cargo-shuttle
       run: cargo binstall cargo-shuttle
       shell: sh
