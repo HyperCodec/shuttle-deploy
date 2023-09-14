@@ -24,12 +24,10 @@ runs:
     - name: Install cargo-shuttle
       run: cargo binstall cargo-shuttle -y
       shell: sh
-      working-directory: ${{ inputs.path }}
 
     - name: Login to shuttle
       run: cargo shuttle login --api-key ${{ inputs.api_key }}
       shell: sh
-      working-directory: ${{ inputs.path }}
 
     - name: Deploy to shuttle
       run: |
