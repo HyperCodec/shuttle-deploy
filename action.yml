@@ -10,8 +10,31 @@ inputs:
     required: true
   project_name:
     description: "The name of the Shuttle project"
+    default: "None provided"
   path:
     description: "The path to your shuttle project"
+    default: "./"
 runs:
-  using: "node16"
-  main: main.js
+  using: "composite"
+
+  steps:
+    - name: Install cargo-binstall
+      uses: cargo-bins/cargo-binstall@install-cargo-binstall-1.0.0
+
+    - name: Install cargo-shuttle
+      run: cargo binstall cargo-shuttle -y
+      shell: sh
+
+    - name: Login to shuttle
+      run: cargo shuttle login --api-key ${{ inputs.api_key }}
+      shell: sh
+
+    - name: Deploy to shuttle
+      run: |
+        if [[ "${{ inputs.project_name }}" == "None provided" ]]; then
+        cargo shuttle deploy
+        else
+        cargo shuttle deploy --name ${{ inputs.project_name }}
+        fi
+      shell: bash
+      working-directory: ${{ inputs.path }}
