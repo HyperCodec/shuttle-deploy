@@ -21,10 +21,13 @@ runs:
   steps:
     - name: Install cargo-binstall
       uses: cargo-bins/cargo-binstall@install-cargo-binstall-1.0.0
+      shell: sh
     - name: Install cargo-shuttle
       run: cargo binstall cargo-shuttle
+      shell: sh
     - name: Login to shuttle
       run: cargo shuttle login --api-key ${{ inputs.api_key }}
+      shell: sh
     - name: Deploy to shuttle
       run: |
         if [[ "${{ inputs.project_name }}" == "None provided" ]]; then
