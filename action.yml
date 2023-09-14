@@ -16,18 +16,23 @@ inputs:
     default: "./"
 runs:
   using: "composite"
-  working-directory: ${{ inputs.path }}
 
   steps:
     - name: Install cargo-binstall
       uses: cargo-bins/cargo-binstall@install-cargo-binstall-1.0.0
       shell: sh
+      working-directory: ${{ inputs.path }}
+      
     - name: Install cargo-shuttle
       run: cargo binstall cargo-shuttle
       shell: sh
+      working-directory: ${{ inputs.path }}
+
     - name: Login to shuttle
       run: cargo shuttle login --api-key ${{ inputs.api_key }}
       shell: sh
+      working-directory: ${{ inputs.path }}
+
     - name: Deploy to shuttle
       run: |
         if [[ "${{ inputs.project_name }}" == "None provided" ]]; then
@@ -36,3 +41,4 @@ runs:
         cargo shuttle deploy --name ${{ inputs.project_name }}
         fi
       shell: bash
+      working-directory: ${{ inputs.path }}
