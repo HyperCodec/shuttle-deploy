@@ -27,7 +27,7 @@ jobs:
 ### Parameters
 `* = required`
 
-- api_key* - Your shuttle.rs API key. For security reasons, please use [Github Secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets) so as to not leak access to your Shuttle account.
+- api_key* - Your shuttle.rs API key. For security reasons, please use [Github Secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets) so you don't leak access to your Shuttle account.
 - project_name - The name of the Shuttle project.
 - path - The path to your Shuttle project.
 
